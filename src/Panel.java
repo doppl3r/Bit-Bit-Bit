@@ -13,14 +13,17 @@ public class Panel extends JPanel implements KeyListener,
 	MouseListener, MouseMotionListener, Runnable{
 	private static final long serialVersionUID = 1L;
     private int panelState; //displays menus individually
-    public Background background;
+    private Background background;
+
     private Game game;
     public ShipEditor editor;
+    public Particles particles;
     private GUI gui;
 	private Timer t;
 	
 	public Panel(){
         background = new Background();
+        particles = new Particles();
         game = new Game();
         editor = new ShipEditor();
         gui = new GUI();
@@ -47,6 +50,7 @@ public class Panel extends JPanel implements KeyListener,
 		setBackground(Color.BLACK);
         //draw components
         background.draw(g);
+        particles.draw(g);
         switch(panelState){
             case(0): editor.draw(g); break;
             case(1): game.draw(g); break;
@@ -56,6 +60,7 @@ public class Panel extends JPanel implements KeyListener,
 	public void update(){
 		//update the components
         background.update();
+        particles.update();
         switch(panelState){
             case(0): editor.update(); break;
             case(1): game.update(); break;

@@ -1,8 +1,11 @@
+import audio.AudioHandler;
+
 public class Player extends Ship {
     private boolean left;
     private boolean right;
     private boolean fireBullet;
     private double speed;
+    private int money;
 
     public Player(){
         speed = 10.0;
@@ -56,6 +59,7 @@ public class Player extends Ship {
             if (getFireTime() > 0) setFireTime(getFireTime()-1);
             else {
                 resetFireTime();
+                AudioHandler.SHOOT2.play();
                 Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
                     0,getBulletSpeed(),getBulletSize(),false);
             }
@@ -63,7 +67,9 @@ public class Player extends Ship {
     }
     public void fireBullet(boolean fire, boolean force){
         fireBullet = fire;
-        if (force) setFireTime(0);
+        if (force){
+            setFireTime(0);
+        }
     }
     public void moveLeft(boolean left){ this.left=left; }
     public void moveRight(boolean right){ this.right=right; }

@@ -3,9 +3,12 @@ public class Enemy1 extends Enemy {
     public Enemy1() {
         //set up enemy properties
         //rebuildMatrix(7,7);
+        setBulletSize(8);
+        setBulletSpeed(5);
+        setMaxFireTime(500);
         setSpeedX(2);
         setSpeedY(2);
-        setMaxFireTime(20);
+
         //initMatrix();
         int[][] mat = {
             {0,1,1,1,1,1,1,1,0},

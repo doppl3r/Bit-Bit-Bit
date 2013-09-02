@@ -27,6 +27,8 @@ public class EnemyHandler {
         for (int i = 0; i < enemies.size(); i++){
             enemies.get(i).update();
             if (enemies.get(i).isDead()){
+                Window.panel.particles.addClusterAt(enemies.get(i).getX(),
+                    enemies.get(i).getY(),255,0,0,50);
                 enemies.remove(i);
                 AudioHandler.EXPLODE.play();
             }

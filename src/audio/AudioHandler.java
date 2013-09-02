@@ -5,6 +5,7 @@ import javax.sound.sampled.*;
 public enum AudioHandler {
     POP1("sounds/pop1.wav"),
     SHOOT("sounds/shoot.wav"),
+    SHOOT2("sounds/shoot2.wav"),
     THUNK("sounds/thunk.wav"),
     THUNK2("sounds/thunk2.wav"),
     EXPLODE("sounds/explode.wav");

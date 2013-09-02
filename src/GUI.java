@@ -4,11 +4,16 @@ import java.awt.*;
 
 public class GUI {
     private Button iContinue;
+    private Font font;
     public GUI(){
         iContinue = new Button(Window.tt.iContinue, Window.getWidth()/2, 480, true);
+        font = new Font ("Arial", Font.BOLD, 18);
     }
     public void draw(Graphics2D g){
         iContinue.draw(g);
+        g.setFont(font);
+        g.setColor(Color.white);
+        g.drawString("Money: "+Game.player.getMoney(),4,Window.getHeight()-4);
     }
     public void update(){}
     public void down(int x1, int y1){

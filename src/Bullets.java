@@ -74,6 +74,7 @@ public class Bullets {
                                 Game.enemies.getEnemyAt(i).getHeight()/2){
                                 //damage the enemy
                                 if (Game.enemies.getEnemyAt(i).isVisible(x,y+tempY)){
+                                    Game.player.addMoney(50);
                                     Game.enemies.getEnemyAt(i).hurt(x,y+tempY);
                                     active = false;
                                     break;

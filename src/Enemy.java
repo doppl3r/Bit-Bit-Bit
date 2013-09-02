@@ -1,3 +1,5 @@
+import audio.AudioHandler;
+
 public class Enemy extends Ship{
     private double speedX;
     private double speedY;
@@ -7,6 +9,7 @@ public class Enemy extends Ship{
         pathNodes = new PathNodes(); //let your enemy type add nodes per A.I. request
     }
     public void update(){
+        //move around
         if (Math.abs(getX() - pathNodes.getCurrentX()) < speedX &&
             Math.abs(getY() - pathNodes.getCurrentY()) < speedY){
             //go to next node
@@ -19,6 +22,13 @@ public class Enemy extends Ship{
             //move up or down
             if (getY() > pathNodes.getCurrentY()) setY(getY()-speedY);
             if (getY() < pathNodes.getCurrentY()) setY(getY()+speedY);
+        }
+        //fire bullet
+        if (getFireTime() > 0) tickFireTime();
+        else{
+            resetFireTime();
+            Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
+                0,getBulletSpeed(),getBulletSize(),true);
         }
     }
     //setters

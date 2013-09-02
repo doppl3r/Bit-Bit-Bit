@@ -16,11 +16,15 @@ public class Ship {
     private int bulletSpeed;
     private int fireTime;
     private int maxFireTime;
+    private int money;
+    private int wallCost;
     private boolean showGrid;
 
     public Ship(){
         //default ship
         pixelSize = 8;
+        money = 6000;
+        wallCost = 1000;
         rebuildMatrix(13,13);
     }
     public void draw(Graphics2D g){
@@ -122,22 +126,35 @@ public class Ship {
         //fix bounds
         if (col >= 0 && col <= cols-1 && row >= 0 && row <= rows-1){
             //toggle changes
-            if (matrix[row][col] == 0){
+            if (matrix[row][col] == 0 && money >= wallCost){
+                money -= wallCost;
                 setMatrixValue(col,row,1);
+                AudioHandler.POP1.play();
             }
             else if (matrix[row][col] == 1){
+                money += wallCost;
                 setMatrixValue(col,row,0);
+                AudioHandler.THUNK2.play();
+                Window.panel.particles.addClusterAt(x,y,10);
             }
         }
     }
     public void hurt(double x, double y){
-        setMatrixValue((((int)(x-getX()))/(getPixelSize()))+(getCols()/2),
-            (((int)(y-getY()))/(getPixelSize()))+(getRows()/2),   0);
+        /*setMatrixValue((((int)(x-getX()))/(getPixelSize()))+(getCols()/2),
+            (((int)(y-getY()))/(getPixelSize()))+(getRows()/2),   0);*/
+        int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
+        int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
+        setMatrixValue(col,row,0);
+        System.out.println("row: "+row+", col: "+col);
+
         AudioHandler.THUNK2.play();
+        Window.panel.particles.addClusterAt(x,y,10);
     }
     public boolean isVisible(double x, double y){
-        int col = (((int)(x-getX()))/(getPixelSize()))+(getCols()/2);
-        int row = (((int)(y-getY()))/(getPixelSize()))+(getRows()/2);
+        /*int col = (((int)(x-getX()))/(getPixelSize()))+(getCols()/2);
+        int row = (((int)(y-getY()))/(getPixelSize()))+(getRows()/2);*/
+        int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
+        int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
         return matrix[row][col] != 0;
     }
     //getters
@@ -154,6 +171,7 @@ public class Ship {
     public int getBulletSpeed(){ return bulletSpeed; }
     public int getFireTime(){ return fireTime; }
     public int getMaxFireTime(){ return maxFireTime; }
+    public int getMoney(){ return money; }
     public boolean isDead(){ return matrix[heartY][heartX] == 0; }
     public boolean isShowGrid(){ return showGrid; }
     public int[][] getMatrix(){ return matrix; }
@@ -172,5 +190,8 @@ public class Ship {
     public void setFireTime(int fireTime){ this.fireTime=fireTime; }
     public void setMaxFireTime(int maxFireTime){ this.maxFireTime=maxFireTime; }
     public void resetFireTime(){ fireTime = maxFireTime; }
+    public void tickFireTime(){ fireTime -= 1; }
     public void setGrid(boolean showGrid){ this.showGrid=showGrid; }
+    public void addMoney(int amount){ money+=amount; }
+    public void setMoney(int money){ this.money=money; }
 }
