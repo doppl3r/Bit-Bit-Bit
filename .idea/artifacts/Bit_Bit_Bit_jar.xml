@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Bit Bit Bit:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Bit_Bit_Bit_jar</output-path>
+    <root id="archive" name="Bit Bit Bit.jar">
+      <element id="module-output" name="Bit Bit Bit" />
+    </root>
+  </artifact>
+</component>
