@@ -19,9 +19,13 @@ public class Bullets {
             if (!bullets.get(i).isActive()) bullets.remove(i);
         }
     }
-    public void addBullet(double x, double y, double speedX, double speedY, int size, boolean hostile){
-        bullets.add(new Bullet(x,y,speedX,speedY,size,hostile));
+    public void addBullet(double x, double y, double speedX, double speedY, int size, boolean hostile, boolean guided){
+        bullets.add(new Bullet(x,y,speedX,speedY,size,hostile, guided));
     }
+    public void removeAll(){
+        while (bullets.size()>0) bullets.remove(0);
+    }
+
     public class Bullet {
         private double x;
         private double y;
@@ -30,14 +34,16 @@ public class Bullets {
         private int size;
         private boolean hostile; //true = hurt player
         private boolean active; //false = remove from the list
+        private boolean guided;
 
-        public Bullet(double x, double y, double speedX, double speedY, int size, boolean hostile){
+        public Bullet(double x, double y, double speedX, double speedY, int size, boolean hostile, boolean guided){
             this.x=x;
             this.y=y;
             this.speedX =speedX;
             this.speedY =speedY;
             this.size=size;
             this.hostile=hostile;
+            this.guided=guided;
             active = true;
         }
         public void draw(Graphics2D g){
@@ -52,6 +58,13 @@ public class Bullets {
                 //move bullet in the speed direction. ex: x = x + (-2); new x = x minus 2
                 x += speedX;
                 y += speedY;
+                //check guided bullets
+                if (guided){
+                    if (Math.abs(x-Game.player.getX()) > (size/2)){
+                        if (x > Game.player.getX()) x-=2;
+                        else x+=2;
+                    }
+                }
                 //check collision with player
                 if (hostile){
                     if (Math.abs(x - Game.player.getX()) < Game.player.getWidth()/2 &&

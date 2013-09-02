@@ -4,21 +4,25 @@ public class Game {
     public static Player player;
     public static Bullets bullets;
     public static EnemyHandler enemies;
+    public static WaveHandler waveHandler;
 
     public Game(){
         player = new Player();
         bullets = new Bullets();
         enemies = new EnemyHandler();
+        waveHandler = new WaveHandler();
     }
     public void draw(Graphics2D g){
         player.draw(g);
         bullets.draw(g);
         enemies.draw(g);
+        waveHandler.draw(g);
     }
     public void update(){
         player.update();
         bullets.update();
         enemies.update();
+        waveHandler.update();
     }
     public void down(int x1, int y1){
         player.down(x1, y1);

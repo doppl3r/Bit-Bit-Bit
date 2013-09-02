@@ -120,7 +120,8 @@ public class Ship {
             }   System.out.println("");
         }
     }
-    public void setShipWall(double x, double y){
+    public boolean setShipWall(double x, double y){
+        boolean build = true;
         int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
         int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
         //fix bounds
@@ -138,6 +139,8 @@ public class Ship {
                 Window.panel.particles.addClusterAt(x,y,10);
             }
         }
+        else build = false;
+        return build;
     }
     public void hurt(double x, double y){
         /*setMatrixValue((((int)(x-getX()))/(getPixelSize()))+(getCols()/2),
@@ -145,7 +148,7 @@ public class Ship {
         int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
         int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
         setMatrixValue(col,row,0);
-        System.out.println("row: "+row+", col: "+col);
+        //System.out.println("row: "+row+", col: "+col);
 
         AudioHandler.THUNK2.play();
         Window.panel.particles.addClusterAt(x,y,10);

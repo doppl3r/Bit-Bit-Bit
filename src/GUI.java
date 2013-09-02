@@ -4,16 +4,26 @@ import java.awt.*;
 
 public class GUI {
     private Button iContinue;
-    private Font font;
+
     public GUI(){
         iContinue = new Button(Window.tt.iContinue, Window.getWidth()/2, 480, true);
-        font = new Font ("Arial", Font.BOLD, 18);
+
     }
     public void draw(Graphics2D g){
         iContinue.draw(g);
-        g.setFont(font);
         g.setColor(Color.white);
-        g.drawString("Money: "+Game.player.getMoney(),4,Window.getHeight()-4);
+        switch (Window.panel.getPanelState()){
+            case(0):
+                if (iContinue.isHidden()) iContinue.reveal();
+                g.drawString("Click the grid to customize your war ship!", 60,100);
+                g.drawString("Bitcoin: "+Game.player.getMoney(),151,220);
+            break;
+            case(1):
+                g.drawString("Bitcoin: "+Game.player.getMoney(),4,Window.getHeight()-4);
+            break;
+        }
+        //show pause
+        if (Window.panel.isPaused()) g.drawString("Paused",210,340);
     }
     public void update(){}
     public void down(int x1, int y1){
@@ -25,6 +35,7 @@ public class GUI {
     public void up(int x1, int y1){
         if (iContinue.up(x1,y1)){
             Game.player.setMatrix(Window.panel.editor.getMatrix());
+            Game.waveHandler.startWave();
             iContinue.hide();
             Window.panel.setPanelState(1);
         }

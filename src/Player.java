@@ -61,7 +61,7 @@ public class Player extends Ship {
                 resetFireTime();
                 AudioHandler.SHOOT2.play();
                 Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
-                    0,getBulletSpeed(),getBulletSize(),false);
+                    0,getBulletSpeed(),getBulletSize(),false,false);
             }
         }
     }
@@ -73,4 +73,8 @@ public class Player extends Ship {
     }
     public void moveLeft(boolean left){ this.left=left; }
     public void moveRight(boolean right){ this.right=right; }
+    public void resetFireBullet(){
+        fireBullet = false;
+        resetFireTime();
+    }
 }

@@ -8,14 +8,6 @@ public class EnemyHandler {
 
     public EnemyHandler(){
         enemies = new LinkedList<Enemy>();
-        addEnemy(Window.getWidth()/2,-3500, new Enemy1());
-        addEnemy(Window.getWidth()/2,-3000, new Enemy1());
-        addEnemy(Window.getWidth()/2,-2500, new Enemy1());
-        addEnemy(Window.getWidth()/2,-2000, new Enemy1());
-        addEnemy(Window.getWidth()/2,-1500, new Enemy1());
-        addEnemy(Window.getWidth()/2,-1000, new Enemy1());
-        addEnemy(Window.getWidth()/2,-500, new Enemy1());
-        addEnemy(Window.getWidth()/2,0, new Enemy1());
     }
     public void draw(Graphics2D g){
         int size = enemies.size();
@@ -31,11 +23,17 @@ public class EnemyHandler {
                     enemies.get(i).getY(),255,0,0,50);
                 enemies.remove(i);
                 AudioHandler.EXPLODE.play();
+                if (enemies.size()==0){
+                    Game.waveHandler.endWave();
+                }
             }
         }
     }
     public void addEnemy(double x, double y, Enemy enemy){
         int index = enemies.size();
+        if (x == -1){ //randomize the x value
+            x = (int)(Math.random()*Window.getWidth());
+        }
         enemies.add(enemy);
         enemies.get(index).setXY(x,y);
     }

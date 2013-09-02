@@ -12,9 +12,10 @@ import javax.swing.Timer;
 public class Panel extends JPanel implements KeyListener,
 	MouseListener, MouseMotionListener, Runnable{
 	private static final long serialVersionUID = 1L;
+    private boolean paused; //pause option
     private int panelState; //displays menus individually
+    private Font font;
     private Background background;
-
     private Game game;
     public ShipEditor editor;
     public Particles particles;
@@ -22,6 +23,7 @@ public class Panel extends JPanel implements KeyListener,
 	private Timer t;
 	
 	public Panel(){
+        font = new Font ("Arial", Font.BOLD, 18);
         background = new Background();
         particles = new Particles();
         game = new Game();
@@ -48,22 +50,27 @@ public class Panel extends JPanel implements KeyListener,
         Graphics2D g = (Graphics2D)tempG;
         super.paintComponent(g);
 		setBackground(Color.BLACK);
+        g.setFont(font);
         //draw components
-        background.draw(g);
-        particles.draw(g);
-        switch(panelState){
-            case(0): editor.draw(g); break;
-            case(1): game.draw(g); break;
+        if (!paused){
+            background.draw(g);
+            particles.draw(g);
+            switch(panelState){
+                case(0): editor.draw(g); break;
+                case(1): game.draw(g); break;
+            }
         }
         gui.draw(g);
 	}
 	public void update(){
 		//update the components
-        background.update();
-        particles.update();
-        switch(panelState){
-            case(0): editor.update(); break;
-            case(1): game.update(); break;
+        if (!paused){
+            background.update();
+            particles.update();
+            switch(panelState){
+                case(0): editor.update(); break;
+                case(1): game.update(); break;
+            }
         }
         gui.update();
 	}
@@ -78,6 +85,7 @@ public class Panel extends JPanel implements KeyListener,
                 if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { game.keyDownPressed(); }
                 if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { game.keyLeftPressed(); }
                 if (key == KeyEvent.VK_SPACE){ Game.player.fireBullet(true, false); }
+                if (key == KeyEvent.VK_ESCAPE){ paused = !paused; }
            break;
         }
 	}
@@ -136,4 +144,7 @@ public class Panel extends JPanel implements KeyListener,
         gui.hover(x1,y1);
 	}
     public void setPanelState(int i){ panelState = i; }
+    public int getPanelState(){ return panelState; }
+    public void setPause(boolean paused){ this.paused=paused; }
+    public boolean isPaused(){ return paused; }
 }
