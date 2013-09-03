@@ -47,7 +47,7 @@ public class Background {
             x = (int)(Math.random()*Window.getWidth());
             y = (int)(Math.random()*Window.getHeight());
             //sprite.update(x,y);
-            System.out.println(sprite.getCurrentFrame());
+            //System.out.println(sprite.getCurrentFrame());
             speedY = (int)(Math.random()*3)+1;
             //opacity properties
             alphaType = AlphaComposite.SRC_OVER;

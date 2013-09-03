@@ -9,7 +9,7 @@ public class ShipEditor extends Player {
     public void down(int x, int y){
         if (setShipWall(x, y)){ //if the grid is selected
             Game.player.setMoney(getMoney());
-            Window.panel.particles.addClusterAt(250,215,10);
+            //Window.panel.particles.addClusterAt(250,215,10);
         }
     }
 }

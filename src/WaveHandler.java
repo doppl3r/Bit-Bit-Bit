@@ -68,7 +68,7 @@ public class WaveHandler {
     }
     public void draw(Graphics2D g){
         if (messageFade > 0){
-            System.out.println(messageFade);
+            //System.out.println(messageFade);
             g.setColor(new Color(255,255,255,messageFade));
             g.drawString("Level "+currentWave,messageX,messageY);
         }
