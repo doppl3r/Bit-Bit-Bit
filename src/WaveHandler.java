@@ -9,7 +9,7 @@ public class WaveHandler {
 
     public WaveHandler(){
         //testing purposes
-        currentWave = 0;
+        currentWave = 0; //subtract 1
     }
     public void startWave(){
         currentWave++; //starts at 1
@@ -35,7 +35,14 @@ public class WaveHandler {
                 Game.enemies.addEnemy(380,-1750, new Enemy2());
             break;
             case(3):
-
+                Game.enemies.addEnemy(Window.getWidth()/2,-500, new Enemy3());
+                Game.enemies.addEnemy(Window.getWidth()/2,-600, new Enemy3());
+                Game.enemies.addEnemy(Window.getWidth()/2,-700, new Enemy3());
+                Game.enemies.addEnemy(Window.getWidth()/2,-800, new Enemy3());
+                Game.enemies.addEnemy(Window.getWidth()/2,-900, new Enemy3());
+                Game.enemies.addEnemy(Window.getWidth()/2,-1000, new Enemy3());
+                Game.enemies.addEnemy(Window.getWidth()/2,-1100, new Enemy3());
+                Game.enemies.addEnemy(Window.getWidth()/2,-1200, new Enemy3());
             break;
             case(4):
 

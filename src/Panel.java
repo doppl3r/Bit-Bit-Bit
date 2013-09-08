@@ -110,7 +110,10 @@ public class Panel extends JPanel implements KeyListener,
 		int x1 = e.getX();
 		int y1 = e.getY();
         switch(panelState){
-            case(0): editor.down(x1,y1); break;
+            case(0):
+                editor.down(x1,y1);
+
+            break;
             case(1): game.down(x1, y1); break;
         }
         gui.down(x1,y1);
@@ -129,7 +132,7 @@ public class Panel extends JPanel implements KeyListener,
 		int y1 = e.getY();
         switch(panelState){
             case(0): break;
-            case(1): game.up(x1, y1);
+            case(1): game.up(x1, y1);break;
         }
         gui.up(x1,y1);
 	}
@@ -139,7 +142,7 @@ public class Panel extends JPanel implements KeyListener,
 		int y1 = e.getY();
         switch(panelState){
             case(0): break;
-            case(1): game.hover(x1, y1);
+            case(1): game.hover(x1, y1); break;
         }
         gui.hover(x1,y1);
 	}
