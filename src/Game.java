@@ -5,6 +5,7 @@ public class Game {
     public static Bullets bullets;
     public static EnemyHandler enemies;
     public static WaveHandler waveHandler;
+    private boolean gameOver;
 
     public Game(){
         player = new Player();
@@ -46,4 +47,7 @@ public class Game {
     public void keyDownReleased(){}
     public void keyLeftReleased(){ player.moveLeft(false); }
     public void keyRightReleased(){ player.moveRight(false); }
+    //setGameOver
+    public void setGameOver(boolean gameOver){ this.gameOver=gameOver; }
+    public boolean isGameOver(){ return gameOver; }
 }

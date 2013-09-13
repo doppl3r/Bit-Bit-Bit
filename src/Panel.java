@@ -16,10 +16,10 @@ public class Panel extends JPanel implements KeyListener,
     private int panelState; //displays menus individually
     private Font font;
     private Background background;
-    private Game game;
+    public Game game;
     public ShipEditor editor;
     public Particles particles;
-    private GUI gui;
+    public GUI gui;
 	private Timer t;
 	
 	public Panel(){

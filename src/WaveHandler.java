@@ -9,7 +9,7 @@ public class WaveHandler {
 
     public WaveHandler(){
         //testing purposes
-        currentWave = 0; //subtract 1
+        currentWave = 0; //subtract 1 to get level
     }
     public void startWave(){
         currentWave++; //starts at 1
@@ -45,7 +45,10 @@ public class WaveHandler {
                 Game.enemies.addEnemy(Window.getWidth()/2,-1200, new Enemy3());
             break;
             case(4):
-
+                Game.enemies.addEnemy(-1,-500, new Enemy4());
+                Game.enemies.addEnemy(-1,-1000, new Enemy4());
+                Game.enemies.addEnemy(-1,-1500, new Enemy4());
+                Game.enemies.addEnemy(-1,-2000, new Enemy4());
             break;
             case(5):
 
@@ -72,6 +75,11 @@ public class WaveHandler {
         Window.panel.editor.setMoney(Game.player.getMoney());
         Game.player.resetFireBullet();
         Game.bullets.removeAll();
+    }
+    public void gameOver(){
+        endWave();
+        currentWave--;
+        Window.panel.game.setGameOver(true);
     }
     public void draw(Graphics2D g){
         if (messageFade > 0){

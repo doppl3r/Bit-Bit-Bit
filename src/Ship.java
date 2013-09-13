@@ -28,38 +28,40 @@ public class Ship {
         rebuildMatrix(13,13);
     }
     public void draw(Graphics2D g){
-        for (int row = 0; row < rows; row++){
-            for (int col = 0; col < cols; col++){
-
-                //set color
-                switch(matrix[row][col]){
-                    case(1): g.setColor(new Color(255,255,255)); break;
-                    case(2): g.setColor(new Color(255,  0,  0)); break;
-                    default: g.setColor(new Color(255,255,255)); break;
-                }
-                //draw ship (centered)
-                if (matrix[row][col] > 0){
-                    g.fillRect((int)((col*pixelSize)+x-((cols*pixelSize)/2)+1), //the (+1) is the spacing
-                        (int)((row*pixelSize)+y-((rows*pixelSize)/2)+1),
-                        pixelSize-2, //the (-2) is also the spacing
-                        pixelSize-2);
-                    if (matrix[row][col]==1) g.setColor(new Color(100,100,100));
-                    else if (matrix[row][col]==2) g.setColor(new Color(150,0,0));
-                    g.fillRect((int)((col*pixelSize)+x-((cols*pixelSize)/2)+1), //the (+1) is the spacing
-                        (int)((row*pixelSize)+y-((rows*pixelSize)/2)+pixelSize-1),
-                        pixelSize-2, //the (-2) is also the spacing
-                        pixelSize/2);
-                }
-            }
-        }
-        //show grid
-        if (showGrid){
+        if (!isDead()){ //hide ship if it's dead
             for (int row = 0; row < rows; row++){
                 for (int col = 0; col < cols; col++){
-                    g.setColor(new Color(75,75,75));
-                    g.drawRect((col*pixelSize)+(int)(x-(getWidth()/2))+1,
-                            (row*pixelSize)+(int)(y-(getHeight()/2))+1,
-                            pixelSize-3,pixelSize-3);
+
+                    //set color
+                    switch(matrix[row][col]){
+                        case(1): g.setColor(new Color(255,255,255)); break;
+                        case(2): g.setColor(new Color(255,  0,  0)); break;
+                        default: g.setColor(new Color(255,255,255)); break;
+                    }
+                    //draw ship (centered)
+                    if (matrix[row][col] > 0){
+                        g.fillRect((int)((col*pixelSize)+x-((cols*pixelSize)/2)+1), //the (+1) is the spacing
+                            (int)((row*pixelSize)+y-((rows*pixelSize)/2)+1),
+                            pixelSize-2, //the (-2) is also the spacing
+                            pixelSize-2);
+                        if (matrix[row][col]==1) g.setColor(new Color(100,100,100));
+                        else if (matrix[row][col]==2) g.setColor(new Color(150,0,0));
+                        g.fillRect((int)((col*pixelSize)+x-((cols*pixelSize)/2)+1), //the (+1) is the spacing
+                            (int)((row*pixelSize)+y-((rows*pixelSize)/2)+pixelSize-1),
+                            pixelSize-2, //the (-2) is also the spacing
+                            pixelSize/2);
+                    }
+                }
+            }
+            //show grid
+            if (showGrid){
+                for (int row = 0; row < rows; row++){
+                    for (int col = 0; col < cols; col++){
+                        g.setColor(new Color(75,75,75));
+                        g.drawRect((col*pixelSize)+(int)(x-(getWidth()/2))+1,
+                                (row*pixelSize)+(int)(y-(getHeight()/2))+1,
+                                pixelSize-3,pixelSize-3);
+                    }
                 }
             }
         }
@@ -143,15 +145,15 @@ public class Ship {
         return build;
     }
     public void hurt(double x, double y){
-        /*setMatrixValue((((int)(x-getX()))/(getPixelSize()))+(getCols()/2),
-            (((int)(y-getY()))/(getPixelSize()))+(getRows()/2),   0);*/
-        int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
-        int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
-        setMatrixValue(col,row,0);
-        //System.out.println("row: "+row+", col: "+col);
+        if (!isDead()){
+            int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
+            int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
+            setMatrixValue(col,row,0);
+            //System.out.println("row: "+row+", col: "+col);
 
-        AudioHandler.THUNK2.play();
-        Window.panel.particles.addClusterAt(x,y,10);
+            AudioHandler.THUNK2.play();
+            Window.panel.particles.addClusterAt(x,y,10);
+        }
     }
     public boolean isVisible(double x, double y){
         /*int col = (((int)(x-getX()))/(getPixelSize()))+(getCols()/2);

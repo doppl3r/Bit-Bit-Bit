@@ -43,26 +43,35 @@ public class Player extends Ship {
     }
     public void update(){
         //update the player x position
-        int direction = 0;
-        double tempX = getX();
-        //check direction
-        if (left) direction = -1;
-        else if (right) direction = 1;
-        //keep in bounds
-        if (tempX+(speed*direction) < 0) tempX = 0;
-        else if (tempX+(speed*direction) > Window.getWidth()) tempX = Window.getWidth();
-        else tempX += (speed*direction);
-        //adjust X
-        if (direction != 0) setX(tempX);
-        //update fireBullet time
-        if (fireBullet){
-            if (getFireTime() > 0) setFireTime(getFireTime()-1);
-            else {
-                resetFireTime();
-                AudioHandler.SHOOT2.play();
-                Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
-                    0,getBulletSpeed(),getBulletSize(),false,false);
+        if (!isDead()){
+            int direction = 0;
+            double tempX = getX();
+
+            //check direction
+            if (left) direction = -1;
+            else if (right) direction = 1;
+
+            //keep in bounds
+            if (tempX+(speed*direction) < 0) tempX = 0;
+            else if (tempX+(speed*direction) > Window.getWidth()) tempX = Window.getWidth();
+            else tempX += (speed*direction);
+
+            //adjust X
+            if (direction != 0) setX(tempX);
+
+            //update fireBullet time
+            if (fireBullet){
+                if (getFireTime() > 0) setFireTime(getFireTime()-1);
+                else {
+                    resetFireTime();
+                    AudioHandler.SHOOT2.play();
+                    Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
+                        0,getBulletSpeed(),getBulletSize(),false,false);
+                }
             }
+        }
+        else{ //kill the player
+            Game.waveHandler.gameOver();
         }
     }
     public void fireBullet(boolean fire, boolean force){
@@ -77,4 +86,5 @@ public class Player extends Ship {
         fireBullet = false;
         resetFireTime();
     }
+    public boolean isFiring(){ return fireBullet; }
 }

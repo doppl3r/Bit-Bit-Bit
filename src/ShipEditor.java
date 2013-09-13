@@ -1,4 +1,3 @@
-import buttons.Button;
 
 public class ShipEditor extends Player {
     public ShipEditor(){

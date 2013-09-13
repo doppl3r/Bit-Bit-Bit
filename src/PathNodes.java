@@ -8,6 +8,8 @@ public class PathNodes {
         pathNodes = new LinkedList<Node>();
     }
     public void add(int x, int y){
+        if (x == -1) x=(int)(Math.random()*Window.getWidth());
+        if (y == -1) y=(int)(Math.random()*400)+64;
         pathNodes.add(new Node(x,y));
     }
     public void remove(int i){ pathNodes.remove(i); }
