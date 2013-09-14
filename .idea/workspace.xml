@@ -12,24 +12,24 @@
     <file path="/fragment.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378428658076" ignored="false" />
     <file path="/Textures.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378144653234" ignored="false" />
     <file path="/Game.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379029257365" ignored="false" />
-    <file path="/Panel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379029092598" ignored="false" />
+    <file path="/Panel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379121613895" ignored="false" />
     <file path="/GUI.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379032136889" ignored="false" />
     <file path="/pixel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1377988916758" ignored="false" />
     <file path="/Unit.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1377989476617" ignored="false" />
     <file path="/Player.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379027470368" ignored="false" />
-    <file path="/Ship.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379026794919" ignored="false" />
+    <file path="/Ship.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379122786028" ignored="false" />
     <file path="/Window.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1377995237834" ignored="false" />
     <file path="/Bullets.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378162427313" ignored="false" />
     <file path="/Enemy.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378163235897" ignored="false" />
     <file path="/Enemy1.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378162518586" ignored="false" />
-    <file path="/EnemyHandler.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379023366682" ignored="false" />
+    <file path="/EnemyHandler.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379123236331" ignored="false" />
     <file path="/PathNodes.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379022824203" ignored="false" />
-    <file path="/ShipEditor.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378158659993" ignored="false" />
-    <file path="/AudioHandler.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378153673384" ignored="false" />
+    <file path="/ShipEditor.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379122884286" ignored="false" />
+    <file path="/AudioHandler.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379120638802" ignored="false" />
     <file path="/Background.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378149503427" ignored="false" />
     <file path="/SpriteSheet.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378146611637" ignored="false" />
     <file path="/Particles.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378151406472" ignored="false" />
-    <file path="/WaveHandler.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379029102171" ignored="false" />
+    <file path="/WaveHandler.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379123096814" ignored="false" />
     <file path="/Button.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379023662290" ignored="false" />
     <file path="/Enemy2.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378163568766" ignored="false" />
     <file path="/a.groovy" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378169763908" ignored="false" />
@@ -97,19 +97,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Enemy4.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Enemy4.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="24" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Panel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Panel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="10" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
+            <state line="20" column="52" selection-start="690" selection-end="690" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -118,7 +109,7 @@
       <file leaf-file-name="ShipEditor.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ShipEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="50" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0">
+            <state line="10" column="20" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -127,25 +118,43 @@
       <file leaf-file-name="GUI.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="39" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.0">
+            <state line="35" column="101" selection-start="1223" selection-end="1223" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AudioHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/audio/AudioHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="31" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnemyHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EnemyHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="30" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="50" selection-start="1524" selection-end="1524" vertical-scroll-proportion="0.7878315">
+            <state line="51" column="4" selection-start="1385" selection-end="1385" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WaveHandler.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WaveHandler.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WaveHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="140" selection-start="2718" selection-end="2718" vertical-scroll-proportion="0.0">
+            <state line="84" column="33" selection-start="3044" selection-end="3044" vertical-scroll-proportion="0.6012461">
               <folding />
             </state>
           </provider>
@@ -163,7 +172,7 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="25" selection-start="2268" selection-end="2268" vertical-scroll-proportion="0.0">
+            <state line="45" column="12" selection-start="1294" selection-end="1303" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -172,16 +181,7 @@
       <file leaf-file-name="Ship.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="79" selection-start="5619" selection-end="5619" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bullets.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Bullets.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="67" selection-start="3171" selection-end="3171" vertical-scroll-proportion="0.0">
+            <state line="30" column="12" selection-start="711" selection-end="742" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -197,7 +197,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Enemy1.java" />
         <option value="$PROJECT_DIR$/src/Enemy.java" />
         <option value="$PROJECT_DIR$/src/Enemy2.java" />
         <option value="$PROJECT_DIR$/src/Background.java" />
@@ -205,20 +204,21 @@
         <option value="$PROJECT_DIR$/src/PathNodes.java" />
         <option value="$PROJECT_DIR$/src/Enemy4.java" />
         <option value="$PROJECT_DIR$/src/buttons/Button.java" />
-        <option value="$PROJECT_DIR$/src/EnemyHandler.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/GUI.java" />
+        <option value="$PROJECT_DIR$/src/audio/AudioHandler.java" />
+        <option value="$PROJECT_DIR$/src/Panel.java" />
+        <option value="$PROJECT_DIR$/src/Ship.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/ShipEditor.java" />
-        <option value="$PROJECT_DIR$/src/Panel.java" />
         <option value="$PROJECT_DIR$/src/WaveHandler.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
-        <option value="$PROJECT_DIR$/src/Ship.java" />
-        <option value="$PROJECT_DIR$/src/GUI.java" />
+        <option value="$PROJECT_DIR$/src/EnemyHandler.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-264" />
+    <option name="y" value="-1088" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -295,6 +295,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="buttons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aminalpatterns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bit Bit Bit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -407,6 +425,9 @@
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\deben_000\IdeaProjects\Bit Bit Bit\content\sounds" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\deben_000\IdeaProjects\Bit Bit Bit\content\sounds" />
       <recent name="C:\Users\deben_000\IdeaProjects\Bit Bit Bit\content\graphics" />
@@ -584,7 +605,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-264" y="-1088" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -592,7 +613,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25612473" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22278911" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -600,8 +621,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13767342" sideWeight="0.7427617" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2572383" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13767342" sideWeight="0.74387527" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25612473" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51877135" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -674,20 +695,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Enemy3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="62" selection-start="0" selection-end="999" vertical-scroll-proportion="0.74772036">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Background.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="104" selection-start="961" selection-end="961" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PathNodes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="50" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0">
@@ -709,23 +716,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EnemyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="51" selection-start="665" selection-end="665" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Bullets.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="67" selection-start="3171" selection-end="3171" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShipEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="50" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -737,9 +730,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Panel.java">
+    <entry file="file://$PROJECT_DIR$/src/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="10" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
+        <state line="11" column="13" selection-start="187" selection-end="187" vertical-scroll-proportion="-0.18564743">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/audio/AudioHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="31" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -751,37 +751,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="79" selection-start="5619" selection-end="5619" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="39" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="25" selection-start="2268" selection-end="2268" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WaveHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="140" selection-start="2718" selection-end="2718" vertical-scroll-proportion="0.0">
+        <state line="35" column="101" selection-start="1223" selection-end="1223" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="50" selection-start="1524" selection-end="1524" vertical-scroll-proportion="0.7878315">
+        <state line="51" column="4" selection-start="1385" selection-end="1385" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Panel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="52" selection-start="690" selection-end="690" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="12" selection-start="711" selection-end="742" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="12" selection-start="1294" selection-end="1303" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ShipEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="20" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EnemyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="30" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WaveHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="33" selection-start="3044" selection-end="3044" vertical-scroll-proportion="0.6012461">
           <folding />
         </state>
       </provider>

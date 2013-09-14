@@ -1,3 +1,5 @@
+import audio.AudioHandler;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +31,9 @@ public class Panel extends JPanel implements KeyListener,
         game = new Game();
         editor = new ShipEditor();
         gui = new GUI();
+        //start music
+        //AudioHandler.THEME.play();
+        AudioHandler.THEME.clip.loop(-1);
 		//set listeners and thread
 		addKeyListener(this);
 		addMouseListener(this);

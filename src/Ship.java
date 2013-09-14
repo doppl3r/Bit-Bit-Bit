@@ -28,7 +28,7 @@ public class Ship {
         rebuildMatrix(13,13);
     }
     public void draw(Graphics2D g){
-        if (!isDead()){ //hide ship if it's dead
+        if (!Window.panel.game.isGameOver()){ //hide ship if it's dead
             for (int row = 0; row < rows; row++){
                 for (int col = 0; col < cols; col++){
 

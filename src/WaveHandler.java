@@ -80,6 +80,9 @@ public class WaveHandler {
         endWave();
         currentWave--;
         Window.panel.game.setGameOver(true);
+        //reset player gameOver state to end loop
+        Game.player.setHeartPosition("bottom");
+        Game.enemies.removeAll();
     }
     public void draw(Graphics2D g){
         if (messageFade > 0){

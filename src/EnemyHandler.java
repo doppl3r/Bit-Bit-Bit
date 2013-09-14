@@ -37,6 +37,12 @@ public class EnemyHandler {
         enemies.add(enemy);
         enemies.get(index).setXY(x,y);
     }
+    public void removeAll(){
+        int size = size();
+        for (int i = 0; i < size; i++){
+            enemies.remove(0);
+        }
+    }
     public Enemy getEnemyAt(int i){ return enemies.get(i); }
     public int size(){ return enemies.size(); }
 }

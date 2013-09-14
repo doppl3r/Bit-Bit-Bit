@@ -37,16 +37,19 @@ public class Game {
     public void hover(int x1, int y1){
         player.hover(x1, y1);
     }
+
     //key pressed
     public void keyUpPressed(){}
     public void keyDownPressed(){}
     public void keyLeftPressed(){ player.moveLeft(true); }
     public void keyRightPressed(){ player.moveRight(true); }
+
     //key released
     public void keyUpReleased(){}
     public void keyDownReleased(){}
     public void keyLeftReleased(){ player.moveLeft(false); }
     public void keyRightReleased(){ player.moveRight(false); }
+
     //setGameOver
     public void setGameOver(boolean gameOver){ this.gameOver=gameOver; }
     public boolean isGameOver(){ return gameOver; }
