@@ -9,7 +9,8 @@ public class WaveHandler {
 
     public WaveHandler(){
         //testing purposes
-        currentWave = 0; //subtract 1 to get level
+        currentWave = 1; //subtract 1 to get level
+        currentWave--; //don't make fun of me
     }
     public void startWave(){
         currentWave++; //starts at 1
@@ -23,26 +24,18 @@ public class WaveHandler {
                 Game.enemies.addEnemy(-1, -1000, new Enemy1());
                 Game.enemies.addEnemy(-1, -1500, new Enemy1());
                 Game.enemies.addEnemy(-1, -2000, new Enemy1());
-                Game.enemies.addEnemy(-1, -2500, new Enemy1());
-                Game.enemies.addEnemy(-1, -3000, new Enemy1());
             break;
             case(2): //8 enemy2
                 Game.enemies.addEnemy(100,-500, new Enemy2());
                 Game.enemies.addEnemy(380,-750, new Enemy2());
                 Game.enemies.addEnemy(100,-1000, new Enemy2());
                 Game.enemies.addEnemy(380,-1250, new Enemy2());
-                Game.enemies.addEnemy(380,-1500, new Enemy2());
-                Game.enemies.addEnemy(380,-1750, new Enemy2());
             break;
             case(3):
-                Game.enemies.addEnemy(Window.getWidth()/2,-500, new Enemy3());
-                Game.enemies.addEnemy(Window.getWidth()/2,-600, new Enemy3());
-                Game.enemies.addEnemy(Window.getWidth()/2,-700, new Enemy3());
-                Game.enemies.addEnemy(Window.getWidth()/2,-800, new Enemy3());
-                Game.enemies.addEnemy(Window.getWidth()/2,-900, new Enemy3());
-                Game.enemies.addEnemy(Window.getWidth()/2,-1000, new Enemy3());
-                Game.enemies.addEnemy(Window.getWidth()/2,-1100, new Enemy3());
-                Game.enemies.addEnemy(Window.getWidth()/2,-1200, new Enemy3());
+                Game.enemies.addEnemy(-1,-300, new Enemy3());
+                Game.enemies.addEnemy(-1,-400, new Enemy3());
+                Game.enemies.addEnemy(-1,-500, new Enemy3());
+                Game.enemies.addEnemy(-1,-600, new Enemy3());
             break;
             case(4):
                 Game.enemies.addEnemy(-1,-500, new Enemy4());
@@ -51,7 +44,9 @@ public class WaveHandler {
                 Game.enemies.addEnemy(-1,-2000, new Enemy4());
             break;
             case(5):
-
+                for (int i = 0; i < 15; i++){
+                    Game.enemies.addEnemy((Window.getWidth()/15)*i, -(i*50), new Enemy5());
+                }
             break;
             case(6):
 

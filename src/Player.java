@@ -8,9 +8,10 @@ public class Player extends Ship {
     private int money;
 
     public Player(){
-        speed = 10.0;
+        speed = 5.0;
         setBulletSize(8);
-        setBulletSpeed(-25); //direction speed
+        setBulletXSpeed(0);
+        setBulletYSpeed(-25); //direction speed
         setMaxFireTime(5);
         //rebuildMatrix(9,9);
         int[][] mat = {
@@ -66,7 +67,7 @@ public class Player extends Ship {
                     resetFireTime();
                     AudioHandler.SHOOT2.play();
                     Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
-                        0,getBulletSpeed(),getBulletSize(),false,false);
+                        getBulletXSpeed(),getBulletYSpeed(),getBulletSize(),false,false);
                 }
             }
         }

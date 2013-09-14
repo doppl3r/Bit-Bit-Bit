@@ -2,8 +2,8 @@ public class Enemy4 extends Enemy {
 
     public Enemy4(){
         setBulletSize(8);
-        setBulletSpeed(1);
-        setMaxFireTime(25);
+        setBulletYSpeed(2);
+        setMaxFireTime(50);
         setGuided(false);
         setSpeedX(1);
         setSpeedY(4);

@@ -6,6 +6,8 @@ import java.awt.*;
 public class Ship {
     private double x;
     private double y;
+    private double bulletXSpeed;
+    private double bulletYSpeed;
     private int heartX; //based off cols
     private int heartY; //based off rows
     private int rows;
@@ -13,7 +15,6 @@ public class Ship {
     private int pixelSize;
     private int[][] matrix;
     private int bulletSize;
-    private int bulletSpeed;
     private int fireTime;
     private int maxFireTime;
     private int money;
@@ -165,6 +166,8 @@ public class Ship {
     //getters
     public double getX(){ return x; }
     public double getY(){ return y; }
+    public double getBulletXSpeed(){ return bulletXSpeed; }
+    public double getBulletYSpeed(){ return bulletYSpeed; }
     public int getHeartX(){ return heartX; }
     public int getHeartY(){ return heartY; }
     public int getRows(){ return rows; }
@@ -173,7 +176,6 @@ public class Ship {
     public int getHeight(){ return rows*pixelSize; }
     public int getPixelSize(){ return pixelSize; }
     public int getBulletSize(){ return bulletSize; }
-    public int getBulletSpeed(){ return bulletSpeed; }
     public int getFireTime(){ return fireTime; }
     public int getMaxFireTime(){ return maxFireTime; }
     public int getMoney(){ return money; }
@@ -187,11 +189,13 @@ public class Ship {
     public void setXY(double x, double y) { this.x=x; this.y=y; }
     public void setHeartX(int heartX){ this.heartX=heartX; }
     public void setHeartY(int heartY){ this.heartY=heartY; }
+    public void setHeartXY(int heartX, int heartY){ this.heartX=heartX; this.heartY=heartY; }
     public void setRows(int rows){ this.rows=rows; } //warning, consider rebuildMatrix
     public void setCols(int cols){ this.cols=cols; } //warning, consider rebuildMatrix
     public void setPixelSize(int pixelSize){ this.pixelSize=pixelSize; }
     public void setBulletSize(int bulletSize){ this.bulletSize=bulletSize; }
-    public void setBulletSpeed(int bulletSpeed){ this.bulletSpeed=bulletSpeed; }
+    public void setBulletXSpeed(double bulletXSpeed){ this.bulletXSpeed=bulletXSpeed; }
+    public void setBulletYSpeed(double bulletXSpeed){ this.bulletYSpeed=bulletXSpeed; }
     public void setFireTime(int fireTime){ this.fireTime=fireTime; }
     public void setMaxFireTime(int maxFireTime){ this.maxFireTime=maxFireTime; }
     public void resetFireTime(){ fireTime = maxFireTime; }

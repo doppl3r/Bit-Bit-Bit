@@ -30,7 +30,7 @@ public class Enemy extends Ship{
         else{
             resetFireTime();
             Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
-                0,getBulletSpeed(),getBulletSize(),true,isGuided());
+                getBulletXSpeed(),getBulletYSpeed(),getBulletSize(),true,isGuided());
         }
     }
     //setters

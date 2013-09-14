@@ -3,7 +3,7 @@ public class Enemy2 extends Enemy {
         //set up enemy properties
         //rebuildMatrix(7,7);
         setBulletSize(8);
-        setBulletSpeed(5);
+        setBulletYSpeed(5);
         setMaxFireTime(200);
         setGuided(false);
         setSpeedX(2);
