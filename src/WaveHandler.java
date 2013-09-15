@@ -45,8 +45,9 @@ public class WaveHandler {
             break;
             case(5):
                 for (int i = 0; i < 15; i++){
-                    Game.enemies.addEnemy((Window.getWidth()/15)*i, -(i*50), new Enemy5());
+                    Game.enemies.addEnemy((Window.getWidth()/2), -(i*50), new Enemy5());
                 }
+                Game.enemies.addEnemy(Window.getWidth()/2,-500,new EnemyBoss1());
             break;
             case(6):
 

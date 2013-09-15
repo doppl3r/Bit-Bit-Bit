@@ -29,9 +29,28 @@ public class Enemy extends Ship{
         if (getFireTime() > 0) tickFireTime();
         else{
             resetFireTime();
-            Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
-                getBulletXSpeed(),getBulletYSpeed(),getBulletSize(),true,isGuided());
+            fireBullets();
         }
+    }
+    public void fireBullets(){
+        int cannonCount = 0;
+        //fire from cannon nodes (3=cannon)
+        for (int row = 0; row < getRows(); row++){
+            for (int col = 0; col < getCols(); col++){
+                if (getMatrix()[row][col] == 3){ //3 = cannon
+                    cannonCount++;
+                    Game.bullets.addBullet(getX()+(col*getBulletSize())-(getWidth()/2)+(getBulletSize()/2), //x
+                            getY()+3*getPixelSize()+(row*getBulletSize())-(getHeight()/2),   //y
+                            getBulletXSpeed(),
+                            getBulletYSpeed(),
+                            getBulletSize(),true,isGuided());
+                }
+            }
+        }
+        //fire from heart
+        Game.bullets.addBullet(getX()+(getHeartX()*getBulletSize())-(getWidth()/2)+(getBulletSize()/2), //x
+                getY()+3*getPixelSize()+(getHeartY()*getBulletSize())-(getHeight()/2),
+                getBulletXSpeed(),getBulletYSpeed(),getBulletSize(),true,isGuided());
     }
     //setters
     public void setSpeedX(double speedX){ this.speedX=speedX; }
