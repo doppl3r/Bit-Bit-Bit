@@ -15,16 +15,18 @@ public class Bullets {
     public void update(){
         //int size = bullets.size();
         for (int i = 0; i < bullets.size(); i++){
-            bullets.get(i).update();
+            bullets.get(i).update(i);
             if (!bullets.get(i).isActive()) bullets.remove(i);
         }
     }
     public void addBullet(double x, double y, double speedX, double speedY, int size, boolean hostile, boolean guided){
         bullets.add(new Bullet(x,y,speedX,speedY,size,hostile, guided));
     }
+    public void remove(int i){ bullets.remove(i); }
     public void removeAll(){
         while (bullets.size()>0) bullets.remove(0);
     }
+    public int quantity(){ return bullets.size(); }
 
     public class Bullet {
         private double x;
@@ -52,7 +54,7 @@ public class Bullets {
             g.setColor(new Color(100,100,100));
             g.fillRect((int)(x-(size/2)), (int)(y-(size/2))+size, size, size/2); //center the bullet
         }
-        public void update(){
+        public void update(int index){
             if (x+(size/2) > 0 && x-(size/2) < Window.getWidth() && //update the bullet if it's still in the window
                 y+(size/2) > 0 && y-(size/2) < Window.getHeight()){
                 //move bullet in the speed direction. ex: x = x + (-2); new x = x minus 2
@@ -61,8 +63,8 @@ public class Bullets {
                 //check guided bullets
                 if (guided){
                     if (Math.abs(x-Game.player.getX()) > (size/2)){
-                        if (x > Game.player.getX()) x-=2;
-                        else x+=2;
+                        if (x > Game.player.getX()) x-=4;
+                        else x+=4;
                     }
                 }
                 //check collision with player

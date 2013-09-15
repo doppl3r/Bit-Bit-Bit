@@ -33,7 +33,9 @@ public class Panel extends JPanel implements KeyListener,
         gui = new GUI();
         //start music
         //AudioHandler.THEME.play();
+
         AudioHandler.THEME.clip.loop(-1);
+
 		//set listeners and thread
 		addKeyListener(this);
 		addMouseListener(this);
@@ -114,10 +116,11 @@ public class Panel extends JPanel implements KeyListener,
 	public void mousePressed(MouseEvent e) { //down
 		int x1 = e.getX();
 		int y1 = e.getY();
+        boolean left = (e.getButton()==1);
+
         switch(panelState){
             case(0):
-                editor.down(x1,y1);
-
+                editor.down(x1,y1,left);
             break;
             case(1): game.down(x1, y1); break;
         }
@@ -146,7 +149,7 @@ public class Panel extends JPanel implements KeyListener,
 		int x1 = e.getX();
 		int y1 = e.getY();
         switch(panelState){
-            case(0): break;
+            case(0): editor.hover(x1,y1); break;
             case(1): game.hover(x1, y1); break;
         }
         gui.hover(x1,y1);

@@ -2,6 +2,7 @@ import audio.AudioHandler;
 import sun.audio.AudioPlayer;
 
 import java.awt.*;
+import java.util.LinkedList;
 
 public class Ship {
     private double x;
@@ -18,15 +19,22 @@ public class Ship {
     private int fireTime;
     private int maxFireTime;
     private int money;
+    private int startMoney;
     private int wallCost;
+    private int cannonCost;
+    private int selectX;
+    private int selectY;
     private boolean showGrid;
 
     public Ship(){
         //default ship
         pixelSize = 8;
-        money = 6000;
+        money = startMoney = 5000;
         wallCost = 1000;
+        cannonCost = 10000;
         rebuildMatrix(13,13);
+        selectX = -1;
+        selectY = -1;
     }
     public void draw(Graphics2D g){
         if (!Window.panel.game.isGameOver()){ //hide ship if it's dead
@@ -37,7 +45,7 @@ public class Ship {
                     switch(matrix[row][col]){
                         case(1): g.setColor(new Color(255,255,255)); break;
                         case(2): g.setColor(new Color(255,  0,  0)); break;
-                        default: g.setColor(new Color(255,255,255)); break;
+                        case(3): g.setColor(new Color(  0,  0,255)); break;
                     }
                     //draw ship (centered)
                     if (matrix[row][col] > 0){
@@ -45,8 +53,12 @@ public class Ship {
                             (int)((row*pixelSize)+y-((rows*pixelSize)/2)+1),
                             pixelSize-2, //the (-2) is also the spacing
                             pixelSize-2);
-                        if (matrix[row][col]==1) g.setColor(new Color(100,100,100));
-                        else if (matrix[row][col]==2) g.setColor(new Color(150,0,0));
+                        //set color shadow
+                        switch(matrix[row][col]){
+                            case(1): g.setColor(new Color(100,100,100)); break;
+                            case(2): g.setColor(new Color(150,  0,  0));break;
+                            case(3): g.setColor(new Color(  0,  0,180));break;
+                        }
                         g.fillRect((int)((col*pixelSize)+x-((cols*pixelSize)/2)+1), //the (+1) is the spacing
                             (int)((row*pixelSize)+y-((rows*pixelSize)/2)+pixelSize-1),
                             pixelSize-2, //the (-2) is also the spacing
@@ -63,6 +75,13 @@ public class Ship {
                                 (row*pixelSize)+(int)(y-(getHeight()/2))+1,
                                 pixelSize-3,pixelSize-3);
                     }
+                }
+                //draw selector
+                if (selectX >= 0 && selectY >= 0){
+                    g.setColor(new Color(255,0,0));
+                    g.drawRect((selectX*pixelSize)+(int)(x-(getWidth()/2))+2,
+                            (selectY*pixelSize)+(int)(y-(getHeight()/2))+2,
+                            pixelSize-5,pixelSize-5);
                 }
             }
         }
@@ -115,6 +134,9 @@ public class Ship {
         }
         matrix[heartY][heartX] = 2;
     }
+    public void resetHeart(){
+        matrix[heartY][heartX] = 2;
+    }
     public void outputString(){
         //test
         for (int row = 0; row < rows; row++){
@@ -123,26 +145,61 @@ public class Ship {
             }   System.out.println("");
         }
     }
-    public boolean setShipWall(double x, double y){
+    public boolean setShipWall(double x, double y, int type){
         boolean build = true;
         int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
         int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
         //fix bounds
         if (col >= 0 && col <= cols-1 && row >= 0 && row <= rows-1){
             //toggle changes
-            if (matrix[row][col] == 0 && money >= wallCost){
-                money -= wallCost;
-                setMatrixValue(col,row,1);
-                AudioHandler.POP1.play();
+            if (matrix[row][col] == 0){ //if the space is empty
+                if (type == 1){
+                    if (money - wallCost >= 0){
+                        money -= wallCost;
+                        setMatrixValue(col,row,type);
+                        AudioHandler.POP1.play();
+                    }
+                }
+                else if (type == 3){
+                    if (money - cannonCost >= 0){
+                        money -= cannonCost;
+                        setMatrixValue(col,row,type);
+                        AudioHandler.POP1.play();
+                    }
+                }
             }
-            else if (matrix[row][col] == 1){
-                money += wallCost;
-                setMatrixValue(col,row,0);
-                AudioHandler.THUNK2.play();
-                Window.panel.particles.addClusterAt(x,y,10);
+            else {
+                if (matrix[row][col]==1){
+                    money += wallCost;
+                    setMatrixValue(col,row,0);
+                    AudioHandler.THUNK2.play();
+                    Window.panel.particles.addClusterAt(x,y,10);
+                }
+                else if (matrix[row][col]==3){
+                    money += cannonCost;
+                    setMatrixValue(col,row,0);
+                    AudioHandler.THUNK2.play();
+                    Window.panel.particles.addClusterAt(x,y,10);
+                }
             }
         }
         else build = false;
+        return build;
+    }
+    public boolean setSelector(double x, double y){
+        boolean build = true;
+        int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
+        int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
+        if (col >= 0 && col <= cols-1 && row >= 0 && row <= rows-1){
+            selectX = col;
+            selectY = row;
+            build = true;
+        }
+        else{
+            build = false;
+            selectX = -1;
+            selectY = -1;
+        }
         return build;
     }
     public void hurt(double x, double y){
@@ -182,7 +239,8 @@ public class Ship {
     public boolean isDead(){ return matrix[heartY][heartX] == 0; }
     public boolean isShowGrid(){ return showGrid; }
     public int[][] getMatrix(){ return matrix; }
-
+    public int getWallCost(){ return wallCost; }
+    public int getCannonCost(){ return cannonCost; }
     //setters
     public void setX(double x){ this.x=x; }
     public void setY(double y){ this.y=y; }
@@ -203,4 +261,7 @@ public class Ship {
     public void setGrid(boolean showGrid){ this.showGrid=showGrid; }
     public void addMoney(int amount){ money+=amount; }
     public void setMoney(int money){ this.money=money; }
+    public void resetMoney(){ money = startMoney; }
+    public void setSelectX(int selectX){ this.selectX=selectX; }
+    public void setSelectY(int selectY){ this.selectY=selectY; }
 }

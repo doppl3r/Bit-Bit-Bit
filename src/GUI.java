@@ -7,7 +7,7 @@ public class GUI {
     private boolean activateButton;
 
     public GUI(){
-        iContinue = new Button(Window.tt.iContinue, Window.getWidth()/2, 480, true);
+        iContinue = new Button(Window.tt.iContinue, Window.getWidth()/2, 490, true);
 
     }
     public void draw(Graphics2D g){
@@ -17,15 +17,23 @@ public class GUI {
             case(0): //edit mode
                 if (iContinue.isHidden()) iContinue.reveal();
                 if (!Window.panel.game.isGameOver()){
-                    g.drawString("Click the grid to customize your war ship!", 60,100);
-                    g.drawString("Bitcoin: "+Game.player.getMoney(),151,220);
+                    g.drawString("Instructions: Left click to build armor or right click", 20,34);
+                    g.drawString("to build a cannon!", 20,54);
+                    g.drawString("Armour = 1,000 Moneyz", 134,120);
+                    g.drawString("Cannon = 10,000 Moneyz", 134,140);
+                    g.drawString("Current Moneyz: "+Game.player.getMoney(),134,200);
+                    /*g.drawString("Left Click: Add Armor", 134,52);
+                    g.drawString("Cost: "+Game.player.getWallCost()+" Bitcoins", 134,76);
+                    g.drawString("Right Click: Add Cannon", 134,126);
+                    g.drawString("Cost: "+Game.player.getCannonCost()+" Bitcoins", 134,150);
+                    g.drawString("Bitcoin: "+Game.player.getMoney(),134,200);*/
                 }
                 else{  //say game Over!
                     g.drawString("Game Over!", 186,320);
                 }
             break;
             case(1): //in game overlay
-                g.drawString("Bitcoin: "+Game.player.getMoney(),4,Window.getHeight()-4);
+                g.drawString("Moneyz: "+Game.player.getMoney(),4,Window.getHeight()-4);
             break;
         }
         //show pause

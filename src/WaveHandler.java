@@ -76,7 +76,12 @@ public class WaveHandler {
         currentWave--;
         Window.panel.game.setGameOver(true);
         //reset player gameOver state to end loop
-        Game.player.setHeartPosition("bottom");
+        //Game.player.setHeartPosition("bottom");
+        //Game.player.resetPlayerMatrix();
+        Window.panel.editor.setMatrix(Game.player.getMatrix());
+        //Game.player.resetMoney();
+        Game.player.resetHeart();
+        //Game.player.resetCannon();
         Game.enemies.removeAll();
     }
     public void draw(Graphics2D g){

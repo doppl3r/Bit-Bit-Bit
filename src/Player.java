@@ -5,29 +5,15 @@ public class Player extends Ship {
     private boolean right;
     private boolean fireBullet;
     private double speed;
-    private int money;
 
     public Player(){
         speed = 5.0;
         setBulletSize(8);
         setBulletXSpeed(0);
-        setBulletYSpeed(-25); //direction speed
+        setBulletYSpeed(-30); //direction speed
         setMaxFireTime(5);
         //rebuildMatrix(9,9);
-        int[][] mat = {
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0},
-            {0,0,0,1,0,1,0,0,0},
-            {0,0,0,1,0,1,0,0,0},
-            {0,0,1,1,1,1,1,0,0},
-        };
-        setMatrix(mat);
-        setHeartPosition("bottom");
-        setXY(Window.getWidth() / 2, Window.getHeight() - getWidth());
+        resetPlayerMatrix();
         //initMatrix();
     }
     public void down(int x1, int y1){ //use 'x1' to avoid interference with 'x'
@@ -66,8 +52,9 @@ public class Player extends Ship {
                 else {
                     resetFireTime();
                     AudioHandler.SHOOT2.play();
-                    Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
-                        getBulletXSpeed(),getBulletYSpeed(),getBulletSize(),false,false);
+                    fireBullets();
+                    /*Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
+                        getBulletXSpeed(),getBulletYSpeed(),getBulletSize(),false,false);*/
                 }
             }
         }
@@ -81,11 +68,48 @@ public class Player extends Ship {
             setFireTime(0);
         }
     }
+    public void fireBullets(){
+        int cannonCount = 0;
+        //fire from cannon nodes (3=cannon)
+        for (int row = 0; row < getRows(); row++){
+            for (int col = 0; col < getCols(); col++){
+                if (getMatrix()[row][col] == 3){ //3 = cannon
+                    cannonCount++;
+                    Game.bullets.addBullet(getX()+(col*getBulletSize())-(getWidth()/2)+(getBulletSize()/2), //x
+                        getY()+3*getPixelSize()+(row*getBulletSize())-(getHeight()/2),   //y
+                        getBulletXSpeed()+(col)-(getCols()/2),
+                        getBulletYSpeed(),
+                        getBulletSize(),false,false);
+                }
+            }
+        }
+        //fire from heart
+        Game.bullets.addBullet(getX()+(getHeartX()*getBulletSize())-(getWidth()/2)+(getBulletSize()/2), //x
+                getY()+3*getPixelSize()+(getHeartY()*getBulletSize())-(getHeight()/2),
+            getBulletXSpeed(),getBulletYSpeed(),getBulletSize(),false,false);
+    }
     public void moveLeft(boolean left){ this.left=left; }
     public void moveRight(boolean right){ this.right=right; }
     public void resetFireBullet(){
         fireBullet = false;
         resetFireTime();
     }
+    public void resetPlayerMatrix(){
+        int[][] mat = {
+                {0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0},
+                {0,0,0,1,0,1,0,0,0},
+                {0,0,0,1,0,1,0,0,0},
+                {0,0,1,1,2,1,1,0,0},
+        };
+        setMatrix(mat);
+        setHeartPosition("bottom");
+        setXY(Window.getWidth() / 2, Window.getHeight() - getWidth());
+    }
     public boolean isFiring(){ return fireBullet; }
+    public void resetCannon(){ setMatrixValue(getHeartX(),getHeartY()-1,3); }
 }
