@@ -5,7 +5,7 @@ public class Enemy1 extends Enemy {
         //rebuildMatrix(7,7);
         setBulletSize(8);
         setBulletYSpeed(5);
-        setMaxFireTime(250);
+        setMaxFireTime(50);
         setGuided(false);
         setSpeedX(1);
         setSpeedY(2);
@@ -14,7 +14,7 @@ public class Enemy1 extends Enemy {
         int[][] mat = {
             {0,1,1,1,1,1,1,1,0},
             {1,1,0,0,1,0,0,1,1},
-            {1,1,0,1,1,1,0,1,1},
+            {1,3,0,1,1,1,0,3,1},
             {1,0,0,0,1,0,0,0,1},
             {0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0},

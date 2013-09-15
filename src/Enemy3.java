@@ -3,10 +3,10 @@ public class Enemy3 extends Enemy {
     public Enemy3(){
         setBulletSize(16);
         setBulletYSpeed(10);
-        setMaxFireTime(200);
+        setMaxFireTime(100);
         setGuided(true);
         setSpeedX(5);
-        setSpeedY(1);
+        setSpeedY(2);
 
         int[][] mat = {
                 {0,1,1,1,0},

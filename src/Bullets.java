@@ -49,9 +49,9 @@ public class Bullets {
             active = true;
         }
         public void draw(Graphics2D g){
-            g.setColor(new Color(255,255,255)); //color it white
+            g.setColor(new Color(255,0,0)); //color it white
             g.fillRect((int)(x-(size/2)), (int)(y-(size/2)), size, size); //center the bullet
-            g.setColor(new Color(100,100,100));
+            g.setColor(new Color(175,0,0)); //color it white
             g.fillRect((int)(x-(size/2)), (int)(y-(size/2))+size, size, size/2); //center the bullet
         }
         public void update(int index){

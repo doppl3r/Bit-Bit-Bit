@@ -31,7 +31,7 @@ public class Ship {
         pixelSize = 8;
         money = startMoney = 5000;
         wallCost = 1000;
-        cannonCost = 10000;
+        cannonCost = 7500;
         rebuildMatrix(13,13);
         selectX = -1;
         selectY = -1;

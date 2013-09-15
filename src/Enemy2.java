@@ -4,7 +4,7 @@ public class Enemy2 extends Enemy {
         //rebuildMatrix(7,7);
         setBulletSize(8);
         setBulletYSpeed(5);
-        setMaxFireTime(200);
+        setMaxFireTime(75);
         setGuided(false);
         setSpeedX(2);
         setSpeedY(2);
@@ -19,7 +19,7 @@ public class Enemy2 extends Enemy {
             {1,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,1},
-            {1,1,0,0,0,0,0,1,1},
+            {3,1,0,0,0,0,0,1,3},
         };
         setMatrix(mat);
         setHeartPosition("top");

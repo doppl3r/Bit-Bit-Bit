@@ -20,7 +20,7 @@ public class GUI {
                     g.drawString("Instructions: Left click to build armor or right click", 20,34);
                     g.drawString("to build a cannon!", 20,54);
                     g.drawString("Armour = 1,000 Moneyz", 134,120);
-                    g.drawString("Cannon = 10,000 Moneyz", 134,140);
+                    g.drawString("Cannon = 7,500 Moneyz", 134,140);
                     g.drawString("Current Moneyz: "+Game.player.getMoney(),134,200);
                     /*g.drawString("Left Click: Add Armor", 134,52);
                     g.drawString("Cost: "+Game.player.getWallCost()+" Bitcoins", 134,76);
