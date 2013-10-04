@@ -2,6 +2,7 @@ public class Enemy3 extends Enemy {
 
     public Enemy3(){
         setBulletSize(16);
+        setBulletXSpeed(3);
         setBulletYSpeed(10);
         setMaxFireTime(100);
         setGuided(true);

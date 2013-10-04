@@ -58,13 +58,12 @@ public class Bullets {
             if (x+(size/2) > 0 && x-(size/2) < Window.getWidth() && //update the bullet if it's still in the window
                 y+(size/2) > 0 && y-(size/2) < Window.getHeight()){
                 //move bullet in the speed direction. ex: x = x + (-2); new x = x minus 2
-                x += speedX;
                 y += speedY;
                 //check guided bullets
                 if (guided){
                     if (Math.abs(x-Game.player.getX()) > (size/2)){
-                        if (x > Game.player.getX()) x-=4;
-                        else x+=4;
+                        if (x > Game.player.getX()) x-=speedX;
+                        else x+=speedX;
                     }
                 }
                 //check collision with player

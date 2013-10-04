@@ -9,7 +9,7 @@ public class WaveHandler {
 
     public WaveHandler(){
         //testing purposes
-        currentWave = 1; //subtract 1 to get level
+        currentWave = 6; //subtract 1 to get level
         currentWave--; //don't make fun of me
     }
     public void startWave(){
@@ -50,7 +50,9 @@ public class WaveHandler {
                 Game.enemies.addEnemy(Window.getWidth()/2,-500,new EnemyBoss1());
             break;
             case(6):
-
+                for (int i = 0; i < 10; i++){
+                    Game.enemies.addEnemy((Window.getWidth()/2), -(i*250), new Enemy6());
+                }
             break;
             case(7):
 
