@@ -59,7 +59,6 @@ public class Bullets {
                 y+(size/2) > 0 && y-(size/2) < Window.getHeight()){
                 //move bullet in the speed direction. ex: x = x + (-2); new x = x minus 2
                 y += speedY;
-                x += speedX;
                 //check guided bullets
                 if (guided){
                     if (Math.abs(x-Game.player.getX()) > (size/2)){
@@ -79,6 +78,7 @@ public class Bullets {
                 }
                 //check collision with enemies
                 else {
+                    x += speedX;
                     for (int i = 0; i < Game.enemies.size(); i++){ //check every enemy
                         for (double tempY = Math.abs(speedY); tempY > 0;
                         tempY -= Game.enemies.getEnemyAt(i).getPixelSize()/2){ //fixes pixel skipping

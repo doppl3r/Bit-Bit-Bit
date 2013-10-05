@@ -33,8 +33,10 @@ public class GUI {
                 }
             break;
             case(1): //in game overlay
-                g.setColor(new Color(255,0  ,  0));
-                g.fillRect(4,620,(int)((472*Game.player.getShield())/100),16);
+                g.setColor(new Color(  0,  0,255));
+                g.fillRect(4,620,(int)((472*Game.player.getShield())/100),8);
+                g.setColor(new Color(255,  0,  0));
+                g.fillRect(4,628,(int)((472*Game.player.getCoolDown())/100),8);
                 g.setColor(new Color(255,255,255));
                 g.drawString("Cash: "+Game.player.getMoney(),4,Window.getHeight()-5);
                 g.drawRect(4,620,472,16);

@@ -9,7 +9,8 @@ public enum AudioHandler {
     THUNK("sounds/thunk.wav"),
     THUNK2("sounds/thunk2.wav"),
     EXPLODE("sounds/explode.wav"),
-    THEME("sounds/bitbitbit.wav");
+    THEME("sounds/bitbitbit.wav"),
+    POWERUP("sounds/powerup.wav");
 
    public static enum Volume {
       MUTE, LOW, MEDIUM, HIGH

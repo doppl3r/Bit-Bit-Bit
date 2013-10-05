@@ -92,7 +92,7 @@ public class Panel extends JPanel implements KeyListener,
                 if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { game.keyDownPressed(); }
                 if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { game.keyLeftPressed(); }
                 if (key == KeyEvent.VK_SPACE){ Game.player.fireBullet(true, false); }
-                if (key == KeyEvent.VK_CONTROL) { Game.player.useShield(true); }
+                if (key == KeyEvent.VK_CONTROL) { Window.panel.game.keyControlPressed(); }
                 if (key == KeyEvent.VK_ESCAPE){ paused = !paused; }
            break;
         }
@@ -107,7 +107,7 @@ public class Panel extends JPanel implements KeyListener,
                 if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { game.keyDownReleased(); }
                 if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { game.keyLeftReleased(); }
                 if (key == KeyEvent.VK_SPACE){ Game.player.fireBullet(false, false); }
-                if (key == KeyEvent.VK_CONTROL) { Game.player.useShield(false); }
+                if (key == KeyEvent.VK_CONTROL) { Window.panel.game.keyControlReleased(); }
             break;
         }
     }

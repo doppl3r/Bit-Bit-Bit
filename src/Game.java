@@ -43,12 +43,14 @@ public class Game {
     public void keyDownPressed(){}
     public void keyLeftPressed(){ player.moveLeft(true); }
     public void keyRightPressed(){ player.moveRight(true); }
+    public void keyControlPressed(){ player.down(0,0,false); }
 
     //key released
     public void keyUpReleased(){}
     public void keyDownReleased(){}
     public void keyLeftReleased(){ player.moveLeft(false); }
     public void keyRightReleased(){ player.moveRight(false); }
+    public void keyControlReleased(){ player.up(0,0,false); }
 
     //setGameOver
     public void setGameOver(boolean gameOver){ this.gameOver=gameOver; }

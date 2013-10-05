@@ -5,6 +5,7 @@ public class Player extends Ship {
     private boolean right;
     private boolean fireBullet;
     private double speed;
+    private double coolDown;
 
     public Player(){
         speed = 5.0;
@@ -56,7 +57,16 @@ public class Player extends Ship {
                 else {
                     resetFireTime();
                     AudioHandler.SHOOT2.play();
-                    fireBullets();
+                    if (canFire()){
+                        fireBullets();
+                        coolDown-=5;
+                        if (coolDown < 0) coolDown=0;
+                        setMaxFireTime(5);
+                    }
+                    else {
+                        fireBullets();
+                        setMaxFireTime(10);
+                    }
                     /*Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
                         getBulletXSpeed(),getBulletYSpeed(),getBulletSize(),false,false);*/
                 }
@@ -70,6 +80,11 @@ public class Player extends Ship {
             else{ //turn off shield
                 setShieldOn(false);
             }
+            //update fire cooldown
+            if (coolDown < 100){
+                if (!fireBullet) coolDown+=3;
+            }
+            else coolDown = 100;
         }
         else{ //kill the player
             Game.waveHandler.gameOver();
@@ -126,6 +141,16 @@ public class Player extends Ship {
     public boolean isFiring(){ return fireBullet; }
     public void resetCannon(){ setMatrixValue(getHeartX(),getHeartY()-1,3); }
     public void useShield(boolean shieldOn){
+        if (shieldOn){
+            if (!shieldUsed()){ //play the sound once
+                AudioHandler.POWERUP.play();
+                setShieldUsed(true);
+            }
+        }
+        else setShieldUsed(false);
         setShieldOn(shieldOn); //enable shield if it is charged enough
     }
+    public double getCoolDown(){ return coolDown; }
+    public void setCoolDown(double cooldDown){ this.coolDown=coolDown; }
+    public boolean canFire(){ return coolDown > 0; }
 }

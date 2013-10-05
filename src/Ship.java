@@ -27,6 +27,7 @@ public class Ship {
     private int selectY;
     private boolean showGrid;
     private boolean shieldOn;
+    private boolean shieldUsed;
     private boolean shieldReady;
 
     public Ship(){
@@ -45,14 +46,6 @@ public class Ship {
                 for (int col = 0; col < cols; col++){
                     //draw ship (centered)
                     if (matrix[row][col] > 0){
-                        //draw shield
-                        if (shieldOn){
-                            g.setColor(new Color(255,  0,  0));
-                            g.fillRect((int)((col*pixelSize)+x-((cols*pixelSize)/2)), //the (+1) is the spacing
-                                    (int)((row*pixelSize)+y-((rows*pixelSize)/2)),
-                                    pixelSize, //the (-2) is also the spacing
-                                    pixelSize+(pixelSize/2));
-                        }
                         //set color
                         switch(matrix[row][col]){
                             case(1): g.setColor(new Color(255,255,255)); break;
@@ -73,6 +66,14 @@ public class Ship {
                             (int)((row*pixelSize)+y-((rows*pixelSize)/2)+pixelSize-1),
                             pixelSize-2, //the (-2) is also the spacing
                             pixelSize/2);
+                        //draw shield
+                        if (shieldOn){
+                            g.setColor(new Color(  0,  0,  255, 75));
+                            g.fillRect((int)((col*pixelSize)+x-((cols*pixelSize)/2)-4), //the (+1) is the spacing
+                                    (int)((row*pixelSize)+y-((rows*pixelSize)/2))-4,
+                                    pixelSize+8, //the (-2) is also the spacing
+                                    pixelSize+(pixelSize/2)+8);
+                        }
                     }
                 }
             }
@@ -215,11 +216,9 @@ public class Ship {
                 int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
                 int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
                 setMatrixValue(col,row,0);
-                //System.out.println("row: "+row+", col: "+col);
-
-                AudioHandler.THUNK2.play();
                 Window.panel.particles.addClusterAt(x,y,10);
             }
+            AudioHandler.THUNK2.play();
         }
     }
     public boolean isVisible(double x, double y){
@@ -251,6 +250,7 @@ public class Ship {
     public boolean isShieldOn(){ return shieldOn; }
     public boolean canUseShield(){ return shield > 50; }
     public boolean shieldReady(){ return shieldReady; }
+    public boolean shieldUsed(){ return shieldUsed; }
     public int[][] getMatrix(){ return matrix; }
     public int getWallCost(){ return wallCost; }
     public int getCannonCost(){ return cannonCost; }
@@ -294,4 +294,5 @@ public class Ship {
         }
         else shieldReady = false;
     }
+    public void setShieldUsed(boolean shieldUsed){ this.shieldUsed=shieldUsed; }
 }
