@@ -92,6 +92,7 @@ public class Panel extends JPanel implements KeyListener,
                 if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { game.keyDownPressed(); }
                 if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { game.keyLeftPressed(); }
                 if (key == KeyEvent.VK_SPACE){ Game.player.fireBullet(true, false); }
+                if (key == KeyEvent.VK_CONTROL) { Game.player.useShield(true); }
                 if (key == KeyEvent.VK_ESCAPE){ paused = !paused; }
            break;
         }
@@ -106,6 +107,7 @@ public class Panel extends JPanel implements KeyListener,
                 if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { game.keyDownReleased(); }
                 if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { game.keyLeftReleased(); }
                 if (key == KeyEvent.VK_SPACE){ Game.player.fireBullet(false, false); }
+                if (key == KeyEvent.VK_CONTROL) { Game.player.useShield(false); }
             break;
         }
     }
@@ -122,7 +124,7 @@ public class Panel extends JPanel implements KeyListener,
             case(0):
                 editor.down(x1,y1,left);
             break;
-            case(1): game.down(x1, y1); break;
+            case(1): game.down(x1,y1,left); break;
         }
         gui.down(x1,y1);
 	}
@@ -138,9 +140,11 @@ public class Panel extends JPanel implements KeyListener,
 	public void mouseReleased(MouseEvent e) { //up
 		int x1 = e.getX();
 		int y1 = e.getY();
+        boolean left = (e.getButton()==1);
+
         switch(panelState){
             case(0): break;
-            case(1): game.up(x1, y1);break;
+            case(1): game.up(x1,y1,left);break;
         }
         gui.up(x1,y1);
 	}

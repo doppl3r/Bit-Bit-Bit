@@ -59,6 +59,7 @@ public class Bullets {
                 y+(size/2) > 0 && y-(size/2) < Window.getHeight()){
                 //move bullet in the speed direction. ex: x = x + (-2); new x = x minus 2
                 y += speedY;
+                x += speedX;
                 //check guided bullets
                 if (guided){
                     if (Math.abs(x-Game.player.getX()) > (size/2)){
@@ -89,6 +90,8 @@ public class Bullets {
                                 //damage the enemy
                                 if (Game.enemies.getEnemyAt(i).isVisible(x,y+tempY)){
                                     Game.player.addMoney(50);
+                                    Game.player.addShield(1);
+                                    Game.player.showShieldReadyMessage(); //check each time it is added
                                     Game.enemies.getEnemyAt(i).hurt(x,y+tempY);
                                     active = false;
                                     break;

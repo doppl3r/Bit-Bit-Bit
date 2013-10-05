@@ -9,6 +9,7 @@ public class Ship {
     private double y;
     private double bulletXSpeed;
     private double bulletYSpeed;
+    private double shield;
     private int heartX; //based off cols
     private int heartY; //based off rows
     private int rows;
@@ -25,6 +26,8 @@ public class Ship {
     private int selectX;
     private int selectY;
     private boolean showGrid;
+    private boolean shieldOn;
+    private boolean shieldReady;
 
     public Ship(){
         //default ship
@@ -40,15 +43,22 @@ public class Ship {
         if (!Window.panel.game.isGameOver()){ //hide ship if it's dead
             for (int row = 0; row < rows; row++){
                 for (int col = 0; col < cols; col++){
-
-                    //set color
-                    switch(matrix[row][col]){
-                        case(1): g.setColor(new Color(255,255,255)); break;
-                        case(2): g.setColor(new Color(255,  0,  0)); break;
-                        case(3): g.setColor(new Color(  0,  0,255)); break;
-                    }
                     //draw ship (centered)
                     if (matrix[row][col] > 0){
+                        //draw shield
+                        if (shieldOn){
+                            g.setColor(new Color(255,  0,  0));
+                            g.fillRect((int)((col*pixelSize)+x-((cols*pixelSize)/2)), //the (+1) is the spacing
+                                    (int)((row*pixelSize)+y-((rows*pixelSize)/2)),
+                                    pixelSize, //the (-2) is also the spacing
+                                    pixelSize+(pixelSize/2));
+                        }
+                        //set color
+                        switch(matrix[row][col]){
+                            case(1): g.setColor(new Color(255,255,255)); break;
+                            case(2): g.setColor(new Color(255,  0,  0)); break;
+                            case(3): g.setColor(new Color(  0,  0,255)); break;
+                        }
                         g.fillRect((int)((col*pixelSize)+x-((cols*pixelSize)/2)+1), //the (+1) is the spacing
                             (int)((row*pixelSize)+y-((rows*pixelSize)/2)+1),
                             pixelSize-2, //the (-2) is also the spacing
@@ -85,9 +95,6 @@ public class Ship {
                 }
             }
         }
-    }
-    public void update(){
-
     }
     public void initMatrix(){
         //0 = empty pixel
@@ -204,13 +211,15 @@ public class Ship {
     }
     public void hurt(double x, double y){
         if (!isDead()){
-            int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
-            int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
-            setMatrixValue(col,row,0);
-            //System.out.println("row: "+row+", col: "+col);
+            if (!shieldOn) {
+                int row = ((int)y-(int)getY()+(getHeight()/2))/getPixelSize();
+                int col = ((int)x-(int)getX()+(getWidth()/2))/getPixelSize();
+                setMatrixValue(col,row,0);
+                //System.out.println("row: "+row+", col: "+col);
 
-            AudioHandler.THUNK2.play();
-            Window.panel.particles.addClusterAt(x,y,10);
+                AudioHandler.THUNK2.play();
+                Window.panel.particles.addClusterAt(x,y,10);
+            }
         }
     }
     public boolean isVisible(double x, double y){
@@ -225,6 +234,7 @@ public class Ship {
     public double getY(){ return y; }
     public double getBulletXSpeed(){ return bulletXSpeed; }
     public double getBulletYSpeed(){ return bulletYSpeed; }
+    public double getShield(){ return shield; }
     public int getHeartX(){ return heartX; }
     public int getHeartY(){ return heartY; }
     public int getRows(){ return rows; }
@@ -238,6 +248,9 @@ public class Ship {
     public int getMoney(){ return money; }
     public boolean isDead(){ return matrix[heartY][heartX] == 0; }
     public boolean isShowGrid(){ return showGrid; }
+    public boolean isShieldOn(){ return shieldOn; }
+    public boolean canUseShield(){ return shield > 50; }
+    public boolean shieldReady(){ return shieldReady; }
     public int[][] getMatrix(){ return matrix; }
     public int getWallCost(){ return wallCost; }
     public int getCannonCost(){ return cannonCost; }
@@ -264,4 +277,21 @@ public class Ship {
     public void resetMoney(){ money = startMoney; }
     public void setSelectX(int selectX){ this.selectX=selectX; }
     public void setSelectY(int selectY){ this.selectY=selectY; }
+    public void setShield(double shield){ this.shield=shield; }
+    public void setShieldOn(boolean shieldOn){ this.shieldOn=shieldOn; }
+    public void addShield(double amount){
+        shield+=amount;
+        if (shield > 100) shield=100;
+        else if (shield < 0) shield=0;
+    }
+    public void setShieldReady(boolean shieldReady){ this.shieldReady=shieldReady; }
+    public void showShieldReadyMessage(){
+        if (shield >= 50){
+            if (!shieldReady) {
+                shieldReady = true;
+                Game.waveHandler.setMessage("Shield Ready! [Right Click]",120);
+            }
+        }
+        else shieldReady = false;
+    }
 }

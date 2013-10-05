@@ -19,9 +19,9 @@ public class GUI {
                 if (!Window.panel.game.isGameOver()){
                     g.drawString("Instructions: Left click to build armor or right click", 20,34);
                     g.drawString("to build a cannon!", 20,54);
-                    g.drawString("Armour = 1,000 Moneyz", 134,120);
-                    g.drawString("Cannon = 7,500 Moneyz", 134,140);
-                    g.drawString("Current Moneyz: "+Game.player.getMoney(),134,200);
+                    g.drawString("Armour = 1,000 Cash", 134,120);
+                    g.drawString("Cannon = 7,500 Cash", 134,140);
+                    g.drawString("Current Cash: "+Game.player.getMoney(),134,200);
                     /*g.drawString("Left Click: Add Armor", 134,52);
                     g.drawString("Cost: "+Game.player.getWallCost()+" Bitcoins", 134,76);
                     g.drawString("Right Click: Add Cannon", 134,126);
@@ -33,7 +33,12 @@ public class GUI {
                 }
             break;
             case(1): //in game overlay
-                g.drawString("Moneyz: "+Game.player.getMoney(),4,Window.getHeight()-4);
+                g.setColor(new Color(255,0  ,  0));
+                g.fillRect(4,620,(int)((472*Game.player.getShield())/100),16);
+                g.setColor(new Color(255,255,255));
+                g.drawString("Cash: "+Game.player.getMoney(),4,Window.getHeight()-5);
+                g.drawRect(4,620,472,16);
+                g.drawLine(Window.getWidth()/2, 620, Window.getWidth()/2, 636);
             break;
         }
         //show pause

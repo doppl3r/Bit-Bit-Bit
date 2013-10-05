@@ -16,14 +16,18 @@ public class Player extends Ship {
         resetPlayerMatrix();
         //initMatrix();
     }
-    public void down(int x1, int y1){ //use 'x1' to avoid interference with 'x'
-        fireBullet(true, true);
+    public void down(int x1, int y1, boolean left){ //use 'x1' to avoid interference with 'x'
+        if (left) fireBullet(true, true);
+        else {
+            if (canUseShield()) useShield(true);
+        }
     }
     public void move(int x1, int y1){ //drag
         setX(x1); //lock y axis
     }
-    public void up(int x1, int y1){
-        fireBullet(false, true);
+    public void up(int x1, int y1, boolean left){
+        if (left) fireBullet(false, true);
+        else useShield(false);
     }
     public void hover(int x1, int y1){
         setX(x1); //lock y axis
@@ -56,6 +60,15 @@ public class Player extends Ship {
                     /*Game.bullets.addBullet(getX(),getY()+3*getPixelSize(),
                         getBulletXSpeed(),getBulletYSpeed(),getBulletSize(),false,false);*/
                 }
+            }
+            //update shield
+            //subtract from shield
+            if (getShield() > 0 && isShieldOn()){
+                addShield(-0.5);
+                if (getShield() < 0) setShield(0);
+            }
+            else{ //turn off shield
+                setShieldOn(false);
             }
         }
         else{ //kill the player
@@ -112,4 +125,7 @@ public class Player extends Ship {
     }
     public boolean isFiring(){ return fireBullet; }
     public void resetCannon(){ setMatrixValue(getHeartX(),getHeartY()-1,3); }
+    public void useShield(boolean shieldOn){
+        setShieldOn(shieldOn); //enable shield if it is charged enough
+    }
 }

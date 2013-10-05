@@ -25,17 +25,17 @@ public class Game {
         enemies.update();
         waveHandler.update();
     }
-    public void down(int x1, int y1){
-        player.down(x1, y1);
+    public void down(int x1, int y1, boolean left){
+        player.down(x1,y1,left);
     }
     public void move(int x1, int y1){
         player.move(x1, y1);
     }
-    public void up(int x1, int y1){
-        player.up(x1, y1);
+    public void up(int x1, int y1, boolean left){
+        player.up(x1,y1,left);
     }
     public void hover(int x1, int y1){
-        player.hover(x1, y1);
+        player.hover(x1,y1);
     }
 
     //key pressed

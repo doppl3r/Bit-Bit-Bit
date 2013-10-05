@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class WaveHandler {
+    private String message;
     private int currentWave;
     private int messageX;
     private int messageY;
@@ -9,14 +10,12 @@ public class WaveHandler {
 
     public WaveHandler(){
         //testing purposes
-        currentWave = 6; //subtract 1 to get level
+        currentWave = 1; //subtract 1 to get level
         currentWave--; //don't make fun of me
     }
     public void startWave(){
         currentWave++; //starts at 1
-        messageX = 210;
-        messageY = Window.getHeight()/2;
-        messageFade = 255;
+        setMessage("Level "+currentWave,-1);
 
         switch(currentWave){
             case(1): //6 enemy1
@@ -72,6 +71,7 @@ public class WaveHandler {
         Window.panel.setPanelState(0);
         Window.panel.editor.setMoney(Game.player.getMoney());
         Game.player.resetFireBullet();
+        Game.player.setShieldOn(false);
         Game.bullets.removeAll();
     }
     public void gameOver(){
@@ -84,19 +84,26 @@ public class WaveHandler {
         Window.panel.editor.setMatrix(Game.player.getMatrix());
         //Game.player.resetMoney();
         Game.player.resetHeart();
+        Game.player.setShield(0);
         //Game.player.resetCannon();
         Game.enemies.removeAll();
     }
     public void draw(Graphics2D g){
         if (messageFade > 0){
-            //System.out.println(messageFade);
             g.setColor(new Color(255,255,255,messageFade));
-            g.drawString("Level "+currentWave,messageX,messageY);
+            g.drawString(message,messageX,messageY);
         }
     }
     public void update(){
         if (messageFade-2 > 0) messageFade-=2;
         else messageFade = 0;
         messageY--;
+    }
+    public void setMessage(String message, int x){
+        this.message=message;
+        if (x == -1) messageX = 210;
+        else messageX = x;
+        messageY = Window.getHeight()/2;
+        messageFade = 255;
     }
 }
